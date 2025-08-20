@@ -3,121 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KK Soni | Portfolio</title>
+  <title>Visual Designer Portfolio</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
+      color: #222;
+      background: #fff;
     }
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
     }
-    header h1 {
-      margin: 0;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
+    .navbar .logo {
       font-weight: bold;
     }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
     }
-    h2 {
-      color: #2c3e50;
+    .navbar ul li a {
+      text-decoration: none;
+      color: #000;
+      font-size: 14px;
     }
-    .projects {
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 100px 50px;
+    }
+    .hero-text h1 {
+      font-size: 48px;
+      margin: 10px 0;
+    }
+    .hero-text p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .hero-text button {
+      background: #000;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      margin-top: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .hero-img img {
+      border-radius: 10px;
+      max-width: 300px;
+    }
+
+    /* Logos */
+    .logos {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 40px 0;
+    }
+    .logos img {
+      max-height: 40px;
+    }
+
+    /* Services */
+    .services {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 50px;
+      text-align: center;
+    }
+    .service h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .service p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Latest Work */
+    .latest-work {
+      padding: 60px 50px;
+    }
+    .latest-work h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+    .work-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .work-item img {
+      width: 100%;
+      border-radius: 6px;
+    }
+    .work-item p {
+      font-size: 14px;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 60px 50px;
+      background: #fafafa;
+    }
+    .testimonials h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+    .testimonial-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
-    .project-card {
-      background: white;
+    .testimonial {
+      background: #fff;
       padding: 20px;
+      border: 1px solid #ddd;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 14px;
     }
-    footer {
-      background: #2c3e50;
-      color: white;
+    .testimonial .author {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 60px 50px;
+      background: #f9f9f9;
       text-align: center;
-      padding: 15px;
-      margin-top: 20px;
+    }
+    .footer h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .footer p {
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+    .footer form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .footer input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 200px;
+    }
+    .footer button {
+      padding: 10px 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>KK Soni</h1>
-    <p>Shopify & Backend Developer | 8+ Years Experience</p>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Logo</div>
     <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Hi, I’m <strong>KK Soni</strong>, a passionate <strong>Shopify Developer</strong> with 8+ years of experience crafting high-performing, visually stunning, and conversion-driven eCommerce stores. I specialize in building <strong>custom Shopify themes, apps, and integrations</strong> that empower businesses to scale online.
-    </p>
-
-    <p>
-      Over the years, I’ve worked with startups, growing brands, and enterprise-level stores—helping them transform their ideas into seamless shopping experiences. My expertise goes beyond Shopify: I’m also skilled in <strong>Node.js, PHP, and backend development</strong>, which allows me to create robust, scalable, and tailored solutions for unique business needs.
-    </p>
-    
-    <p>
-      What sets me apart is my focus on <strong>performance optimization, clean code, and user-friendly designs</strong>. Whether it’s improving site speed, creating a custom feature, or integrating third-party apps, I ensure every detail contributes to a smooth customer journey.
-    </p>
-    
-    <p>
-      When I’m not coding, I enjoy exploring new technologies, mentoring developers, and finding creative ways to solve complex problems. My goal is simple: <strong>help brands grow by delivering Shopify stores that convert visitors into loyal customers.</strong>
-    </p>
-
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <p>Branding | Image making</p>
+      <h1>Visual Designer</h1>
+      <p>This is a template Figma file, turned into code using Anima.<br>Learn more at AnimaApp.com</p>
+      <button>Contact</button>
+    </div>
+    <div class="hero-img">
+      <img src="https://via.placeholder.com/300x300" alt="Profile Image">
+    </div>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card">
-        <h3>Jewelry Shopify Store</h3>
-        <p>Developed a high-converting Shopify store for a jewelry brand with custom theme optimization and integrations.</p>
+  <!-- Logos -->
+  <section class="logos">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Adidas">
+  </section>
+
+  <!-- Services -->
+  <section class="services">
+    <div class="service">
+      <h3>Product Design</h3>
+      <p>This is a template Figma file, turned into code using Anima.<br>Learn more at AnimaApp.com</p>
+    </div>
+    <div class="service">
+      <h3>Visual Design</h3>
+      <p>This is a template Figma file, turned into code using Anima.<br>Learn more at AnimaApp.com</p>
+    </div>
+    <div class="service">
+      <h3>Art Direction</h3>
+      <p>This is a template Figma file, turned into code using Anima.<br>Learn more at AnimaApp.com</p>
+    </div>
+  </section>
+
+  <!-- Latest Work -->
+  <section class="latest-work">
+    <h2>Latest work</h2>
+    <div class="work-gallery">
+      <div class="work-item"><img src="https://via.placeholder.com/300" alt="Project"><p>Project title<br>UI, Art direction</p></div>
+      <div class="work-item"><img src="https://via.placeholder.com/300" alt="Project"><p>Project title<br>UI, Art direction</p></div>
+      <div class="work-item"><img src="https://via.placeholder.com/300" alt="Project"><p>Project title<br>UI, Art direction</p></div>
+      <div class="work-item"><img src="https://via.placeholder.com/300" alt="Project"><p>Project title<br>UI, Art direction</p></div>
+      <div class="work-item"><img src="https://via.placeholder.com/300" alt="Project"><p>Project title<br>UI, Art direction</p></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>Testimonial</h2>
+    <div class="testimonial-list">
+      <div class="testimonial">
+        <p>This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com</p>
+        <div class="author">⭐ ⭐ ⭐ ⭐ ⭐ Gemma Nolen, Google</div>
       </div>
-      <div class="project-card">
-        <h3>Custom Slideshow Section</h3>
-        <p>Built a dynamic Shopify slideshow section with parallax, autoplay, and editable content.</p>
+      <div class="testimonial">
+        <p>This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com</p>
+        <div class="author">⭐ ⭐ ⭐ ⭐ ⭐ Gemma Nolen, Google</div>
       </div>
-      <div class="project-card">
-        <h3>VWO Integration</h3>
-        <p>Integrated Visual Website Optimizer (VWO) for A/B testing and performance improvements on Shopify stores.</p>
+      <div class="testimonial">
+        <p>This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com</p>
+        <div class="author">⭐ ⭐ ⭐ ⭐ ⭐ Gemma Nolen, Google</div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:lab.kspeed@gmail.com">lab.kspeed@gmail.com</a></p>
-    <p>💼 LinkedIn: <a href="https://linkedin.com" target="_blank">https://www.linkedin.com/in/kk-soni/</a></p>
-    <p>💻 GitHub: <a href="https://github.com/kksoni1990" target="_blank">github.com/kksoni1990</a></p>
-  </section>
-
-  <footer>
-    <p>© 2025 KK Soni | Built with ❤️ and GitHub Pages</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <h2>Lets work together</h2>
+    <p>This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com</p>
+    <form>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <button type="submit">Submit</button>
+    </form>
   </footer>
-
 </body>
 </html>
