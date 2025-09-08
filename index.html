@@ -3,311 +3,304 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Albert Wilson — Portfolio</title>
-  <link rel="stylesheet" href="css/style.css"> <!-- ✅ Correct way --> 
+  <title>Albert Wilson — UX / UI Designer</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; background: #fff; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container { max-width: 1200px; margin: auto; padding: 0 1rem; }
+
+    /* Navbar */
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+    .logo { font-weight: 800; font-size: 1.4rem; }
+    .nav-links { display: flex; gap: 1rem; }
+    .nav-links li a { padding: 0.5rem 0.8rem; font-weight: 500; }
+    .btn { background: #111; color: #fff; padding: 0.6rem 1.2rem; border-radius: 25px; font-size: 0.9rem; display: inline-block; transition: 0.3s; }
+    .btn:hover { background: #444; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; padding: 3rem 0; }
+    .hero-left h1 { font-size: 2rem; font-weight: 700; }
+    .name { color: #111; display: block; }
+    .bubble, .small-bubble { background: #f4f4f4; padding: 0.5rem 1rem; margin-top: 1rem; display: inline-block; border-radius: 20px; font-size: 0.9rem; }
+    .hero-center .profile { width: 220px; height: 220px; object-fit: cover; border-radius: 50%; border: 4px solid #eee; }
+    .hero-right .role { font-size: 1.5rem; font-weight: 700; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); text-align: center; padding: 2rem 0; background: #fafafa; }
+    .stat strong { font-size: 1.5rem; display: block; }
+    .stat span { font-size: 0.9rem; color: #666; }
+
+    /* Hire */
+    .hire { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; padding: 3rem 0; }
+    .hire-left h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+    .lead { color: #555; margin-bottom: 1.5rem; }
+    .signature .author { font-weight: 600; }
+    .hire-center .about-img { width: 200px; border-radius: 50%; }
+    .service-card { background: #f9f9f9; padding: 1rem; margin-bottom: 1rem; border-radius: 12px; }
+
+    /* Portfolio */
+    .section-title { font-size: 1.8rem; text-align: center; margin-bottom: 2rem; }
+    .portfolio { padding: 3rem 0; }
+    .work-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 1.5rem; }
+    .work-item { border-radius: 12px; overflow: hidden; background: #fafafa; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .work-meta { padding: 1rem; }
+    .tag { font-size: 0.8rem; background: #111; color: #fff; padding: 0.2rem 0.6rem; border-radius: 6px; margin-bottom: 0.5rem; display: inline-block; }
+    .work-meta h4 { font-size: 1rem; }
+
+    /* Testimonials */
+    .testimonials { padding: 3rem 0; background: #fafafa; }
+    .test-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+    .testimonial { max-width: 300px; text-align: center; }
+    .testimonial img { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 1rem; }
+    .testimonial strong { display: block; margin-bottom: 0.5rem; }
+    .text-muted { color: #666; font-size: 0.9rem; }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1rem; padding: 3rem 0; }
+
+    /* Contact */
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 0; }
+    .contact-list li { margin-bottom: 0.5rem; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    input, select, textarea { padding: 0.8rem; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; }
+    textarea { min-height: 100px; }
+
+    /* Blog */
+    .blog { padding: 3rem 0; }
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1.5rem; }
+    .article-card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; }
+    .article-card img { width: 100%; height: 180px; object-fit: cover; }
+    .meta { padding: 1rem; }
+    .by { font-size: 0.8rem; color: #777; margin-bottom: 0.5rem; }
+    .meta h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .meta a { font-size: 0.9rem; font-weight: 600; color: #111; }
+
+    /* Footer */
+    footer { padding: 2rem 0; background: #fafafa; text-align: center; }
+    .callout { margin-bottom: 1.5rem; }
+    .mini-form { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+    .mini-form input { padding: 0.6rem; border: 1px solid #ccc; border-radius: 8px; }
+    .copyright { font-size: 0.8rem; color: #666; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero, .hire, .contact { grid-template-columns: 1fr; text-align: center; }
+      .nav-links { display: none; }
+      .stats { grid-template-columns: repeat(2,1fr); gap: 1rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .mini-form { flex-direction: column; }
+    }
+  </style>
 </head>
-
 <body>
-  <header>
-    <div class="nav-wrap">
-      <div style="display:flex;align-items:center;gap:18px">
-        <div class="brand">Ethereal</div>
-        <div class="muted">Personal Portfolio</div>
-      </div>
-
+  <div class="container">
+    <!-- Header -->
+    <header class="navbar">
+      <div class="logo">awwa</div>
       <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a href="#blog">Blog</a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
       </nav>
+      <a class="btn" href="#contact">Contact Me</a>
+    </header>
 
-      <div style="display:flex;gap:12px;align-items:center">
-        <button class="menu-toggle" aria-expanded="false">☰</button>
-        <button class="cta">Contact Me</button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section id="home" class="container hero">
-      <div class="hero-left">
-        <div class="eyebrow">HELLO I'M</div>
-        <h1>KK SONI <span class="name">Shopify & Backend Developer with 8+ years of experience building fast, optimized, and user-friendly websites.</span></h1>
-        <p class="lead">I specialize in Shopify custom themes, store optimization, and backend solutions using Node.js & PHP. Let’s bring your idea to life.</p>
-
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="scrollToSection('#contact')">Let's Get Started</button>
-          <button class="btn-ghost" onclick="alert('Play video (placeholder)')">Watch Our Video ▶</button>
+    <!-- HERO -->
+    <main id="home">
+      <section class="hero">
+        <div class="hero-left">
+          <h1>HELLO I’M <strong class="name">ALBERT WILSON</strong></h1>
+          <p class="bubble">10 <span>Years Of Experience</span></p>
+          <p class="small-bubble">325+ <span>Happy Clients</span></p>
         </div>
 
-        <div style="display:flex;align-items:center;gap:18px; margin-top:8px">
-          <div class="avatars" aria-hidden="true">
-            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="">
-            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
-            <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="">
-          </div>
-          <div class="muted">325+ Happy Clients</div>
+        <div class="hero-center">
+          <img src="assets/profile.jpg" alt="Albert Wilson" class="profile">
         </div>
 
-        <div class="stats" style="margin-top:28px">
-          <div class="stat"><div class="num">467+</div><div class="label">Successful Projects</div></div>
-          <div class="stat"><div class="num">2+</div><div class="label">Satisfied Clients</div></div>
-          <div class="stat"><div class="num">255+</div><div class="label">Years of Experience</div></div>
-          <div class="stat"><div class="num">7+</div><div class="label">Award Winning</div></div>
+        <div class="hero-right">
+          <h2 class="role">A CREATIVE<br>UX / UI DESIGNER</h2>
         </div>
-      </div>
+      </section>
 
-      <div class="hero-right">
-        <div class="portrait" role="img" aria-label="Portrait of Albert Wilson">
-          <div class="portrait-orn" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
+      <!-- STATS -->
+      <section class="stats">
+        <div class="stat"><strong>609+</strong><span>Successful Projects</span></div>
+        <div class="stat"><strong>3+</strong><span>Satisfied Clients</span></div>
+        <div class="stat"><strong>333+</strong><span>Years of Experience</span></div>
+        <div class="stat"><strong>9+</strong><span>Award Winning</span></div>
+      </section>
 
-    <section id="about" class="container section">
-      <div class="about">
-        <div class="about-card">
-          <h3 class="section-title">Why You Hire Me?</h3>
-          <p class="muted">I design digital products prioritized for usability, performance and conversion. I specialize in product strategy, UX flows, UI systems, and design handoff to developers.</p>
-
-          <div class="services" style="margin-top:16px">
-            <div class="service">
-              <h4>Website Design</h4>
-              <p class="muted">Clean responsive websites optimized for performance.</p>
-            </div>
-            <div class="service">
-              <h4>Mobile App Design</h4>
-              <p class="muted">End-to-end app design and prototypes.</p>
-            </div>
-            <div class="service">
-              <h4>Web App Design</h4>
-              <p class="muted">Complex web apps with thoughtful UX patterns.</p>
-            </div>
+      <!-- HIRE ME -->
+      <section id="about" class="hire">
+        <div class="hire-left">
+          <h3>Why You Hire Me?</h3>
+          <p class="lead">I build delightful and usable digital products for startups and enterprises. My process focuses on research-driven design, rapid prototyping, and measurable outcomes.</p>
+          <div class="signature">
+            <p class="author">Albert Wilson</p>
+            <p class="title">CEO &amp; UX Designer</p>
           </div>
         </div>
-
-        <div>
-          <h3 class="section-title">My Latest Work</h3>
-          <div class="portfolio-grid" id="projects">
-            <div class="grid-row">
-              <div class="work">
-                <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=60')"></div>
-                <div class="meta">
-                  <strong>App Design With Maintaining UI/UX Process.</strong>
-                  <div class="muted">Web Design</div>
-                </div>
-              </div>
-              <div class="work">
-                <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1528424262174-9c7d9c0c1a81?auto=format&fit=crop&w=800&q=60')"></div>
-                <div class="meta">
-                  <strong>Architecture & Interior Website Design.</strong>
-                  <div class="muted">Website | Creative</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="grid-row" style="margin-top:18px">
-              <div class="work">
-                <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1564865872699-2c4fa9b5b77d?auto=format&fit=crop&w=800&q=60')"></div>
-                <div class="meta">
-                  <strong>Restaurant and Food App Design.</strong>
-                  <div class="muted">App Design</div>
-                </div>
-              </div>
-              <div class="work">
-                <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=60')"></div>
-                <div class="meta">
-                  <strong>Architecture & Interior Design.</strong>
-                  <div class="muted">Web Design</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="hire-center">
+          <img src="assets/about.jpg" alt="Albert smiling" class="about-img">
         </div>
-
-      </div>
-    </section>
-
-    <section class="container section">
-      <h3 class="section-title">What My Customers Says About Me</h3>
-      <div class="testimonials">
-        <div class="test-card slider" aria-roledescription="carousel">
-          <div class="slides" id="slides">
-            <div class="slide">
-              <p>"Albert is a talented designer — the app conversion improved after his redesign. Great communication and fast iterations."</p>
-              <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" style="width:48px;height:48px;border-radius:999px;object-fit:cover;border:3px solid var(--bg)">
-                <div>
-                  <strong>Harry Abraham</strong><br><span class="muted">CEO, First Company</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="slide">
-              <p>"We engaged Albert for our product's UX audit. He delivered a clear roadmap and UI kit — super helpful."</p>
-              <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" style="width:48px;height:48px;border-radius:999px;object-fit:cover;border:3px solid var(--bg)">
-                <div>
-                  <strong>Benita Paul</strong><br><span class="muted">Product Lead</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="slide">
-              <p>"On time, detail oriented, and very skilled. The handoff files were perfect and made development seamless."</p>
-              <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
-                <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="" style="width:48px;height:48px;border-radius:999px;object-fit:cover;border:3px solid var(--bg)">
-                <div>
-                  <strong>Claire James</strong><br><span class="muted">Founder</span>
-                </div>
-              </div>
-            </div>
-
+        <aside class="hire-right">
+          <div class="service-card">
+            <h4>Website Design</h4>
+            <p>I design intuitive, high-converting websites and landing pages.</p>
           </div>
-
-          <div class="controls" style="justify-content:space-between">
-            <div style="display:flex;gap:8px;">
-              <button onclick="prevSlide()" aria-label="Previous">◀</button>
-              <button onclick="nextSlide()" aria-label="Next">▶</button>
-            </div>
-            <div style="display:flex;gap:8px" id="dots"></div>
+          <div class="service-card">
+            <h4>Mobile App Design</h4>
+            <p>Human-centered mobile interfaces with delightful interactions.</p>
           </div>
-        </div>
-
-        <aside class="test-card">
-          <h4 class="kicker">Contact</h4>
-          <strong>Want to work together?</strong>
-          <p class="muted" style="margin-top:10px">I'm available for freelance projects and full-time roles. Let's talk about your next project.</p>
-          <div style="margin-top:14px">
-            <button class="btn-primary" onclick="scrollToSection('#contact')">Contact Our Support</button>
+          <div class="service-card">
+            <h4>Web App Design</h4>
+            <p>Robust UI systems and dashboards for complex workflows.</p>
           </div>
         </aside>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" class="container section">
-      <h3 class="section-title">Contact Info</h3>
-      <div class="contact-grid">
-        <div>
-          <div class="about-card">
-            <p class="muted">Here is my contact info. Where you'll find my creativity and my working talent.</p>
-            <div style="margin-top:14px">
-              <p><strong>Address</strong><br class="muted">241, Royal St, New Town</p>
-              <p style="margin-top:12px"><strong>Email</strong><br class="muted">hello@awwa.design</p>
-              <p style="margin-top:12px"><strong>Phone</strong><br class="muted">+1 555 123 456</p>
+      <!-- PORTFOLIO -->
+      <section id="projects" class="portfolio">
+        <h3 class="section-title">My Latest Work</h3>
+        <div class="work-grid">
+          <article class="work-item">
+            <img src="assets/work1.jpg" alt="Project 1">
+            <div class="work-meta">
+              <span class="tag">Architecture</span>
+              <h4>Architecture &amp; Interior Website Design</h4>
             </div>
-          </div>
+          </article>
+          <article class="work-item">
+            <img src="assets/work2.jpg" alt="Project 2">
+            <div class="work-meta">
+              <span class="tag">Branding</span>
+              <h4>Creative Branding for Product</h4>
+            </div>
+          </article>
+          <article class="work-item">
+            <img src="assets/work3.jpg" alt="Project 3">
+            <div class="work-meta">
+              <span class="tag">App</span>
+              <h4>Mobile App — Productivity</h4>
+            </div>
+          </article>
+          <article class="work-item">
+            <img src="assets/work4.jpg" alt="Project 4">
+            <div class="work-meta">
+              <span class="tag">Web</span>
+              <h4>E-commerce Redesign</h4>
+            </div>
+          </article>
         </div>
+      </section>
 
-        <form id="contactForm" onsubmit="submitForm(event)">
-          <div style="display:flex;gap:12px">
-            <div style="flex:1">
-              <div class="field"><label class="muted">Your Name</label><input id="name" required></div>
-            </div>
-            <div style="flex:1">
-              <div class="field"><label class="muted">Your Email</label><input id="email" type="email" required></div>
-            </div>
+      <!-- TESTIMONIALS -->
+      <section class="testimonials">
+        <h3 class="section-title">What My Customers Say About Me</h3>
+        <div class="test-grid">
+          <figure class="testimonial">
+            <img src="assets/client1.jpg" alt="Benjir Walton">
+            <figcaption>
+              <strong>Benjir Walton</strong>
+              <p class="text-muted">"Albert helped us craft a beautiful product that our customers love."</p>
+            </figcaption>
+          </figure>
+          <figure class="testimonial">
+            <img src="assets/client2.jpg" alt="Willian Smith">
+            <figcaption>
+              <strong>Willian Smith</strong>
+              <p class="text-muted">"Fast, creative, and great attention to detail — highly recommended."</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="gallery">
+        <img src="assets/g1.jpg" alt="gallery 1">
+        <img src="assets/g2.jpg" alt="gallery 2">
+        <img src="assets/g3.jpg" alt="gallery 3">
+        <img src="assets/g4.jpg" alt="gallery 4">
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <div class="contact-info">
+          <h4>Contact Info</h4>
+          <p class="text-muted">Here is my contact info. Reach out for collaborations or full-time opportunities.</p>
+          <ul class="contact-list">
+            <li>📍 24 Royal Lane, New Jersey</li>
+            <li>✉️ hello@awwa.design</li>
+            <li>📞 +1 800 555 0100</li>
+          </ul>
+        </div>
+        <form class="contact-form" action="#" method="post">
+          <div class="form-grid">
+            <input name="name" type="text" placeholder="Your Name" required>
+            <input name="email" type="email" placeholder="Your Email" required>
           </div>
+          <input name="phone" type="tel" placeholder="Your Phone">
+          <select name="service">
+            <option>Choose a Service</option>
+            <option>Website Design</option>
+            <option>Mobile App Design</option>
+            <option>Branding</option>
+          </select>
+          <textarea name="message" placeholder="Message" required></textarea>
+          <button class="btn" type="submit">Free Consultation</button>
+        </form>
+      </section>
 
-          <div style="display:flex;gap:12px">
-            <div style="flex:1">
-              <div class="field"><label class="muted">Your Phone</label><input id="phone"></div>
+      <!-- BLOG -->
+      <section id="blog" class="blog">
+        <h3 class="section-title">Latest Articles</h3>
+        <div class="articles-grid">
+          <article class="article-card">
+            <img src="assets/blog1.jpg" alt="blog post">
+            <div class="meta">
+              <p class="by">By: Amelia Graham • 20 Dec, 2023</p>
+              <h4>How can you Generate Perfect AI Photo</h4>
+              <a href="#">Read More</a>
             </div>
-            <div style="flex:1">
-              <div class="field"><label class="muted">Choose a Service</label>
-                <select id="service">
-                  <option>Website Design</option>
-                  <option>Mobile App Design</option>
-                  <option>UI Audit</option>
-                </select>
-              </div>
+          </article>
+          <article class="article-card">
+            <img src="assets/blog2.jpg" alt="blog post">
+            <div class="meta">
+              <p class="by">By: John Carter • 12 Dec, 2023</p>
+              <h4>How to Build Successful Business Startup</h4>
+              <a href="#">Read More</a>
             </div>
-          </div>
+          </article>
+        </div>
+      </section>
+    </main>
 
-          <div class="field">
-            <label class="muted">Message</label>
-            <textarea id="message" placeholder="Type your message here..."></textarea>
-          </div>
-
-          <button class="btn-submit">Free Consultation</button>
+    <!-- FOOTER -->
+    <footer>
+      <div class="callout">
+        <h3>Have an Idea? Let's Make Something Amazing Together.</h3>
+        <form class="mini-form" action="#">
+          <input placeholder="Type your Message Here">
+          <button class="btn">Get A Quote</button>
         </form>
       </div>
-    </section>
-
-    <footer>
-      <div class="container">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
-          <div>© 2025 AWWA. All rights reserved.</div>
-          <div style="display:flex;gap:12px;align-items:center">
-            <a class="muted" href="#" aria-label="facebook">●</a>
-            <a class="muted" href="#" aria-label="twitter">●</a>
-            <a class="muted" href="#" aria-label="instagram">●</a>
-          </div>
-        </div>
-      </div>
+      <p class="copyright">© 2025 AWWA. All rights reserved.</p>
     </footer>
-  </main>
-
-  <script>
-    /* Simple slides */
-    const slidesEl = document.getElementById('slides');
-    const slides = Array.from(slidesEl.children);
-    const dotsEl = document.getElementById('dots');
-    let idx = 0;
-    function renderDots(){
-      dotsEl.innerHTML = '';
-      slides.forEach((_,i)=>{
-        const d = document.createElement('div');
-        d.className = 'dot' + (i===idx? ' active':'');
-        d.addEventListener('click', ()=> { idx=i; update(); resetAuto(); });
-        dotsEl.appendChild(d);
-      });
-    }
-    function update(){
-      slidesEl.style.transform = `translateX(-${idx * 100}%)`;
-      renderDots();
-    }
-    function nextSlide(){ idx = (idx + 1) % slides.length; update();}
-    function prevSlide(){ idx = (idx - 1 + slides.length) % slides.length; update();}
-
-    let auto = setInterval(nextSlide, 5000);
-    function resetAuto(){ clearInterval(auto); auto = setInterval(nextSlide, 5000); }
-
-    renderDots();
-    update();
-
-    /* Menu toggle for small screens */
-    document.querySelector('.menu-toggle').addEventListener('click', ()=> {
-      const nav = document.querySelector('nav');
-      const expanded = nav.style.display !== 'flex';
-      nav.style.display = expanded ? 'flex' : 'none';
-      nav.style.flexDirection = 'column';
-      nav.style.background = 'linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.4))';
-      nav.style.position = 'absolute';
-      nav.style.right = '20px';
-      nav.style.top = '70px';
-      nav.style.padding = '12px';
-    });
-
-    /* Smooth scroll helper */
-    function scrollToSection(sel){
-      const el = document.querySelector(sel);
-      if(!el) return;
-      el.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-
-    /* Contact form (placeholder) */
-    function submitForm(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      if(!name || !email){ alert('Please add name and email'); return; }
-      // placeholder: normally you'd send to a server
-      alert('Thanks, ' + name + '! Your message has been received (demo).');
-      e.target.reset();
-    }
-  </script>
+  </div>
 </body>
 </html>
