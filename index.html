@@ -1,700 +1,453 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Albert Wilson | Creative UX/UI Designer</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Albert Wilson — Portfolio</title>
   <style>
-    /* CSS Reset */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: #131313;
-      color: #fff;
-      line-height: 1.6;
+    :root{
+      --bg: #050407;
+      --card: #0d0c0d;
+      --muted: #9aa0a6;
+      --accent: #f6c84c;
+      --glass: rgba(255,255,255,0.03);
+      --soft: rgba(246,200,76,0.12);
+      --radius: 14px;
+      --maxw: 1200px;
+      --fw-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    a { color: #fff; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    ul { list-style: none; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg, var(--bg) 0%, #080708 100%);
+      color:#fff;
+      font-family:var(--fw-sans);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .container{max-width:var(--maxw); margin:0 auto; padding:32px;}
 
-    /* Header */
-    header {
-      background: #131313;
-      padding: 30px 0 0 0;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 10%;
-    }
-    .logo {
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-    nav ul {
-      display: flex;
-      gap: 28px;
-    }
-    nav ul li a {
-      font-size: 1rem;
-      transition: color .2s;
-    }
-    nav ul li a:hover {
-      color: #ffbd6f;
-    }
-    .btn {
-      border: none;
-      background-color: #ffbd6f;
-      color: #131313;
-      padding: 0.7em 1.7em;
-      border-radius: 25px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background .2s;
-    }
-    .btn:hover {
-      background: #e39c35;
-      color: #fff;
-    }
+/* NAV */
+    header{position:sticky; top:0; z-index:40; backdrop-filter: blur(6px); background:linear-gradient(180deg, rgba(5,4,7,.4), rgba(5,4,7,.15));}
+    .nav-wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; max-width:var(--maxw); margin:0 auto; padding:16px;}
+    .brand{font-weight:800; letter-spacing:1px}
+    nav{display:flex; gap:18px; align-items:center;}
+    nav a{color:#ddd; text-decoration:none; font-weight:600; font-size:14px}
+    .cta{background:transparent; border:1px solid rgba(255,255,255,.08); padding:8px 12px; border-radius:999px; font-weight:700}
+    .menu-toggle{display:none; background:transparent; border:1px solid rgba(255,255,255,.06); padding:8px; border-radius:8px; color:#fff}
 
-    /* Hero Section */
-    .hero {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      padding: 50px 10%;
-      flex-wrap: wrap;
-    }
-    .hero-content {
-      max-width: 500px;
-    }
-    .hero-content h2 {
-      font-size: 1.5rem;
-      color: #ffbd6f;
-    }
-    .hero-content h1 {
-      font-size: 2.6rem;
-      font-weight: 900;
-      margin-bottom: 15px;
-    }
-    .hero-content p {
-      font-size: 1.08rem;
-      margin-bottom: 28px;
-      opacity: 0.98;
-    }
-    .hero-actions { display: flex; gap: 18px; margin-bottom: 24px; }
-    .video-link {
-      background: none;
-      color: #ffbd6f;
-      border-bottom: 1px dashed #ffbd6f;
-      font-weight: 500;
-      padding-bottom: 2px;
-      transition: color .2s;
-    }
-    .video-link:hover { color: #fff; border-bottom: 1px solid #fff; }
+/* HERO */
+    .hero{display:grid; grid-template-columns: 1fr 520px; gap:48px; align-items:center; padding:64px 0;}
+    .hero-left{max-width:680px;}
+    .eyebrow{color:var(--accent); font-weight:800; letter-spacing:1px; margin-bottom:18px}
+    h1{font-size:clamp(28px, 4.6vw, 48px); margin:0 0 16px; line-height:1.02}
+    h1 .name{display:block; color:#fff; font-size:1.02em}
+    .lead{color:var(--muted); margin-bottom:22px; max-width:52ch}
+    .hero-actions{display:flex; gap:12px; margin-bottom:28px}
+    .btn-primary{background:linear-gradient(90deg,var(--accent), #ffdb6b); color:black; padding:12px 18px; border-radius:999px; font-weight:700; border:0; cursor:pointer}
+    .btn-ghost{background:transparent; border:1px solid rgba(255,255,255,.08); padding:12px 18px; border-radius:999px; color:#ddd; cursor:pointer}
+    .avatars{display:flex; align-items:center; gap:-8px; margin-top:8px}
+    .avatars img{width:36px;height:36px;border-radius:999px;border:2px solid var(--bg); object-fit:cover}
 
-    .happy-clients {
-      margin: 20px 0 3px 0;
-      color: #ffbd6f;
-      font-weight: bold;
+/* HERO RIGHT IMAGE */
+    .hero-right{position:relative; display:flex; justify-content:center; align-items:center;}
+    .portrait{
+      width:100%;
+      max-width:420px;
+      height:560px;
+      border-radius:18px;
+      background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80');
+      background-size:cover;
+      background-position:center;
+      box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 40px rgba(246,200,76,0.08) inset;
+      position:relative;
+      overflow:hidden;
+      display:flex; align-items:flex-end; justify-content:flex-end;
     }
-    .client-logos {
-      display: flex;
-      gap: 6px;
+    .portrait::after{
+      content:"";
+      position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.55) 100%);
     }
-    .hero-image {
-      flex: 1;
-      min-width: 260px;
-      max-width: 350px;
-    }
-    .hero-image img {
-      border-radius: 18px;
-      box-shadow: 0 0 32px #46371d66;
-      background: #1f1912;
-    }
+    .portrait-orn{position:absolute; right:-30px; top:40px; width:260px; height:260px; border-radius:16px; transform:rotate(12deg); border:2px solid rgba(246,200,76,.9); mix-blend-mode:screen; filter:blur(.2px)}
 
-    /* Stats */
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 54px;
-      margin: 0 0 60px 0;
-      padding: 32px 0;
-      background: #181818;
-    }
-    .stat-item {
-      text-align: center;
-    }
-    .stat-item span {
-      font-size: 2rem;
-      color: #ffbd6f;
-      font-weight: 700;
-      display: block;
-    }
-    .stat-item p {
-      color: #f7f6f6;
-      font-size: 1.07rem;
-    }
+/* STATS BAR */
+    .stats{display:grid; grid-template-columns: repeat(4,1fr); gap:18px; margin:32px 0; padding:22px; background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,.02)); border-radius:12px}
+    .stat{text-align:center; padding:12px}
+    .stat .num{font-weight:800; font-size:20px; color:var(--accent)}
+    .stat .label{color:var(--muted); font-size:13px}
 
-    /* Why Hire Me */
-    .why-hire {
-      display: flex;
-      align-items: center;
-      gap: 42px;
-      padding: 38px 10%;
-      flex-wrap: wrap;
-      background: #131313;
+/* ABOUT / SERVICES */
+    .section{padding:56px 0}
+    .about{display:grid; grid-template-columns: 420px 1fr; gap:28px; align-items:center}
+    .about-card{background:var(--card); padding:20px; border-radius:14px}
+    .services{display:flex; gap:16px; margin-top:16px; flex-wrap:wrap}
+    .service{flex:1 1 220px; background:var(--glass); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,.03)}
+    .service h4{margin:0 0 8px; font-size:16px}
+
+/* PORTFOLIO */
+    .portfolio-grid{display:grid; grid-template-columns: repeat(1,1fr); gap:18px}
+    .work{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border-radius:12px; overflow:hidden; min-height:180px; display:flex; flex-direction:column}
+    .work .thumb{height:160px; background-size:cover; background-position:center}
+    .work .meta{padding:12px}
+    .grid-row{display:grid; grid-template-columns: repeat(2,1fr); gap:18px}
+
+/* TESTIMONIALS */
+    .testimonials{display:grid; grid-template-columns: 1fr 320px; gap:18px; align-items:center}
+    .test-card{background:var(--card); padding:20px; border-radius:12px}
+    .slider{position:relative; overflow:hidden}
+    .slides{display:flex; transition:transform .45s cubic-bezier(.2,.9,.2,1)}
+    .slide{min-width:100%; padding:20px}
+    .controls{display:flex; align-items:center; gap:8px; margin-top:12px}
+    .dot{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.12); cursor:pointer}
+    .dot.active{background:var(--accent); transform:scale(1.1)}
+
+/* CONTACT */
+    .contact-grid{display:grid; grid-template-columns: 1fr 420px; gap:18px}
+    form{background:var(--card); padding:18px; border-radius:12px; display:flex; flex-direction:column; gap:12px}
+    .field{display:flex; flex-direction:column; gap:6px}
+    input, textarea, select{
+      background: rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.04);
+      padding:12px; border-radius:8px; color:#fff; outline:none; font-size:14px;
     }
-    .why-hire .profile-image {
-      min-width: 250px;
-      max-width: 350px;
+    textarea{min-height:120px; resize:vertical}
+    .btn-submit{align-self:flex-start; background:linear-gradient(90deg,var(--accent), #ffdb6b); color:black; padding:10px 16px; border-radius:999px; border:0; cursor:pointer; font-weight:700}
+
+/* FOOTER */
+    footer{padding:28px 0; text-align:center; color:var(--muted)}
+
+/* SMALL SCREEN ADJUSTS */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 1fr; gap:28px}
+      .portrait{height:480px}
+      .about{grid-template-columns: 1fr; }
+      .testimonials{grid-template-columns:1fr; }
+      .contact-grid{grid-template-columns:1fr;}
+      .stats{grid-template-columns: repeat(2,1fr);}
     }
-    .why-hire-content {
-      max-width: 520px;
-    }
-    .why-hire-content h2 {
-      font-size: 2rem;
-      color: #ffbd6f;
-      margin-bottom: 14px;
-    }
-    .why-hire-content p {
-      margin-bottom: 10px;
-    }
-    .why-hire-content strong { color: #ffbd6f; }
-    .services {
-      display: flex;
-      gap: 26px;
-      margin: 18px 0;
-      flex-wrap: wrap;
-    }
-    .services div {
-      background: #181818;
-      border-radius: 15px;
-      padding: 15px 23px;
-      min-width: 180px;
-      box-shadow: 0 2px 10px #0002;
-      border: 2px solid #232323;
-    }
-    .services strong {
-      font-size: 1rem;
-      color: #ffbd6f;
-      margin-bottom: 5px;
-      display: block;
+    @media (max-width:760px){
+      .nav-wrap{padding:10px}
+      nav{display:none}
+      .menu-toggle{display:inline-block}
+      .container{padding:18px}
+      .hero{grid-template-columns:1fr; padding:36px 0; gap:18px}
+      .portrait{max-width:100%; height:360px}
+      .stats{grid-template-columns: repeat(1,1fr);}
+      .portfolio-grid{grid-template-columns: repeat(1,1fr);}
+      .grid-row{grid-template-columns:1fr}
+      .hero-left{text-align:center}
+      .hero-actions{justify-content:center}
     }
 
-    /* Latest Work */
-    .latest-work {
-      padding: 32px 10%;
-      background: #181818;
-    }
-    .latest-work h2 {
-      font-size: 2rem;
-      color: #ffbd6f;
-      margin-bottom: 6px;
-    }
-    .latest-work p {
-      margin: 0 0 17px 0;
-      color: #e0e0e0;
-    }
-    .latest-work .btn {
-      margin-bottom: 25px;
-      display: inline-block;
-    }
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-      margin-top: 18px;
-    }
-    .work-item {
-      background: #131313;
-      border-radius: 13px;
-      padding: 18px;
-      box-shadow: 0 0 12px #0006;
-    }
-    .work-item h3 {
-      margin: 9px 0 5px 0;
-      color: #ffbd6f;
-      font-size: 1.13rem;
-    }
-    .work-item p {
-      font-size: 1rem;
-      color: #adb6c5;
-    }
-
-    /* Testimonials */
-    .testimonials {
-      padding: 32px 10%;
-      background: #131313;
-    }
-    .testimonials h2 {
-      font-size: 2rem;
-      color: #ffbd6f;
-      margin-bottom: 8px;
-    }
-    .testimonial-grid {
-      display: flex;
-      gap: 32px;
-      margin-top: 22px;
-      flex-wrap: wrap;
-    }
-    .testimonial-item {
-      flex: 1;
-      background: #181818;
-      border-radius: 12px;
-      padding: 22px;
-      box-shadow: 0 2px 10px #0003;
-      min-width: 230px;
-    }
-    .testimonial-item .avatar img {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .testimonial-item h4 {
-      margin: 10px 0 2px 0;
-      color: #ffbd6f;
-      font-size: 1.06rem;
-    }
-    .testimonial-item p {
-      font-size: 0.97rem;
-      color: #a8adc0;
-      margin-bottom: 6px;
-    }
-    .testimonial-item blockquote {
-      font-size: .97rem;
-      color: #ddd;
-      font-style: italic;
-      margin-top: 7px;
-      opacity: .98;
-    }
-    .testimonial-images {
-      margin: 17px 0 0 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
-    }
-    .testimonial-images img {
-      border-radius: 8px;
-      background: #161616;
-    }
-
-    /* Contact Info */
-    .contact-info {
-      padding: 32px 10%;
-      background: #181818;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-    }
-    .contact-info h2 {
-      color: #ffbd6f;
-      margin-bottom: 8px;
-      font-size: 2rem;
-    }
-    .contact-info ul {
-      margin: 12px 0;
-    }
-    .contact-info ul li {
-      margin-bottom: 18px;
-      font-size: 1rem;
-      color: #bbb;
-    }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-      background: #131313;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 0 10px #0002;
-    }
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-      background: #181818;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 11px;
-      font-size: 1rem;
-      margin-bottom: 8px;
-      outline: none;
-    }
-    .contact-form textarea {
-      resize: vertical;
-      height: 75px;
-      min-height: 40px;
-      max-height: 140px;
-    }
-    .contact-form button {
-      background: #ffbd6f;
-      color: #131313;
-      border: none;
-      padding: 11px;
-      border-radius: 20px;
-      font-weight: bold;
-      margin-top: 10px;
-      cursor: pointer;
-      transition: background .2s;
-    }
-    .contact-form button:hover {
-      background: #e39c35;
-      color: #fff;
-    }
-
-    /* Latest Articles */
-    .latest-articles {
-      padding: 32px 10% 55px 10%;
-      background: #131313;
-      text-align: center;
-    }
-    .latest-articles h2 {
-      font-size: 2rem;
-      color: #ffbd6f;
-    }
-    .latest-articles p {
-      margin-bottom: 25px;
-      color: #f7f6f6;
-    }
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-      margin-top: 18px;
-    }
-    .article-item {
-      background: #181818;
-      border-radius: 14px;
-      padding: 17px;
-      box-shadow: 0 0 10px #0002;
-      text-align: left;
-    }
-    .article-item h3 {
-      color: #ffbd6f;
-      margin: 11px 0 4px 0;
-      font-size: 1.13rem;
-    }
-    .article-item .date {
-      font-size: 0.92rem;
-      color: #aaa;
-      margin-bottom: 6px;
-    }
-    .article-item a {
-      display: inline-block;
-      margin-top: 4px;
-      color: #ffbd6f;
-      text-decoration: underline;
-      font-size: 0.97rem;
-    }
-    .article-item a:hover { color: #fff; }
-
-    /* Footer */
-    footer {
-      background: #181818;
-      text-align: center;
-      padding: 45px 0 22px 0;
-      font-size: 1.05rem;
-      color: #fff;
-    }
-    .footer-contact h2 {
-      color: #ffbd6f;
-      margin-bottom: 13px;
-    }
-    .quote-form {
-      margin: 0 auto;
-      max-width: 390px;
-      display: flex;
-      gap: 10px;
-      margin-top: 18px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .quote-form input {
-      flex: 1 0 65%;
-      padding: 11px;
-      border-radius: 6px;
-      border: none;
-      background: #131313;
-      color: #fff;
-      font-size: 1rem;
-      margin-right: 7px;
-      outline: none;
-    }
-    .quote-form button {
-      flex: 1 0 25%;
-      background: #ffbd6f;
-      color: #131313;
-      border: none;
-      border-radius: 20px;
-      font-weight: bold;
-      padding: 11px 22px;
-      cursor: pointer;
-    }
-    .quote-form button:hover { background: #e39c35; color: #fff; }
-    .footer-social {
-      margin: 18px 0 0 0;
-      display: flex;
-      gap: 17px;
-      justify-content: center;
-    }
-    .footer-social a {
-      font-size: 1.3rem;
-      color: #ffbd6f;
-    }
-
-    @media (max-width: 1100px) {
-      nav, .hero, .stats, .why-hire, .latest-work, .testimonials, .contact-info {
-        padding-left: 5%;
-        padding-right: 5%;
-      }
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .why-hire {
-        flex-direction: column;
-        text-align: center;
-      }
-      .contact-info {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-    }
-    @media (max-width: 700px) {
-      nav ul { display: none; }
-      .hero, .why-hire, .stats, .latest-work, .testimonials, .contact-info {
-        padding-left: 2%;
-        padding-right: 2%;
-      }
-      .stat-item span { font-size: 1.3rem; }
-      .stats { gap: 22px; }
-      .work-grid, .articles-grid, .testimonial-images {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-      .testimonial-grid {
-        flex-direction: column;
-        gap: 14px;
-      }
-      .footer-contact h2 {
-        font-size: 1.18rem;
-      }
-    }
+    /* small visual helpers */
+    .muted{color:var(--muted)}
+    .kicker{font-size:13px; color:var(--muted); display:block; margin-bottom:8px}
+    .section-title{font-size:24px; margin-bottom:18px}
   </style>
 </head>
 <body>
-  <!-- Header and Nav -->
   <header>
-    <nav>
-      <div class="logo">awwa</div>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Blog</a></li>
-      </ul>
-      <a href="#" class="btn">Contact Me</a>
-    </nav>
-    <section class="hero">
-      <div class="hero-content">
-        <h2>HELLO I'M</h2>
-        <h1>Albert Wilson</h1>
-        <p>A Creative UX/UI Designer Who Solves Problems Through Designs</p>
-        <div class="hero-actions">
-          <a href="#" class="btn">Let's Get Started</a>
-          <a href="#" class="video-link">Watch Our Video</a>
-        </div>
-        <div class="happy-clients">325+ Happy Clients</div>
-        <div class="client-logos">
-          <img src="client1.png" alt="Client 1" width="28">
-          <img src="client2.png" alt="Client 2" width="28">
-          <img src="client3.png" alt="Client 3" width="28">
-          <!-- Add client logos -->
-        </div>
+    <div class="nav-wrap">
+      <div style="display:flex;align-items:center;gap:18px">
+        <div class="brand">awwa</div>
+        <div class="muted">Personal Portfolio</div>
       </div>
-      <div class="hero-image">
-        <img src="profile1.jpg" alt="Profile Photo">
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#blog">Blog</a>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <button class="menu-toggle" aria-expanded="false">☰</button>
+        <button class="cta">Contact Me</button>
       </div>
-    </section>
+    </div>
   </header>
 
-  <!-- Stats -->
-  <section class="stats">
-    <div class="stat-item">
-      <span>467+</span>
-      <p>Successful Projects</p>
-    </div>
-    <div class="stat-item">
-      <span>2+</span>
-      <p>Satisfied Clients</p>
-    </div>
-    <div class="stat-item">
-      <span>255+</span>
-      <p>Years of Experience</p>
-    </div>
-    <div class="stat-item">
-      <span>7+</span>
-      <p>Award Winning</p>
-    </div>
-  </section>
+  <main>
+    <section id="home" class="container hero">
+      <div class="hero-left">
+        <div class="eyebrow">HELLO I'M</div>
+        <h1>ALBERT WILSON <span class="name">A Creative UX/UI Designer Who Solves Problems Through Design</span></h1>
+        <p class="lead">I craft meaningful digital experiences — from product concept to pixel-perfect UI — focused on clear interactions and elegant visuals.</p>
 
-  <!-- Why Hire Me -->
-  <section class="why-hire">
-    <div class="profile-image">
-      <img src="profile2.jpg" alt="Profile Photo">
-    </div>
-    <div class="why-hire-content">
-      <h2>Why You Hire Me?</h2>
-      <p>
-        My passion is designing process, problem-solving and creating. Dream-aiming creative designer providing UI/UX solutions for web and mobile applications. Always enthusiastic to face new challenges, working on creative or complex problems, and collaborating with teams to deliver user-centered appealing interfaces.
-      </p>
-      <p><strong>Albert Wilson</strong><br>CEO &amp; UX Designer</p>
-      <div class="services">
-        <div>
-          <strong>Website Design</strong>
-          <p>I have complete website design for my clients.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="scrollToSection('#contact')">Let's Get Started</button>
+          <button class="btn-ghost" onclick="alert('Play video (placeholder)')">Watch Our Video ▶</button>
         </div>
-        <div>
-          <strong>Mobile App Design</strong>
-          <p>I have complete Mobile App design for my clients.</p>
+
+        <div style="display:flex;align-items:center;gap:18px; margin-top:8px">
+          <div class="avatars" aria-hidden="true">
+            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
+            <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="">
+          </div>
+          <div class="muted">325+ Happy Clients</div>
         </div>
-        <div>
-          <strong>Web App Design</strong>
-          <p>I have complete Web App design for my clients.</p>
+
+        <div class="stats" style="margin-top:28px">
+          <div class="stat"><div class="num">467+</div><div class="label">Successful Projects</div></div>
+          <div class="stat"><div class="num">2+</div><div class="label">Satisfied Clients</div></div>
+          <div class="stat"><div class="num">255+</div><div class="label">Years of Experience</div></div>
+          <div class="stat"><div class="num">7+</div><div class="label">Award Winning</div></div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Latest Work -->
-  <section class="latest-work">
-    <h2>My Latest Work</h2>
-    <p>Here is my latest work where you’ll find my creativity and my working talent.</p>
-    <a href="#" class="btn">Contact our Support</a>
-    <div class="work-grid">
-      <div class="work-item">
-        <img src="work-uiux.jpg" alt="App Design With Maintaining UI/UX Process">
-        <h3>App Design With Maintaining UI/UX Process</h3>
-        <p>Web Design</p>
+      <div class="hero-right">
+        <div class="portrait" role="img" aria-label="Portrait of Albert Wilson">
+          <div class="portrait-orn" aria-hidden="true"></div>
+        </div>
       </div>
-      <div class="work-item">
-        <img src="work-architecture.jpg" alt="Architecture & Interior Website Design">
-        <h3>Architecture & Interior Website Design</h3>
-        <p>Website | Creative</p>
-      </div>
-      <div class="work-item">
-        <img src="work-restaurant.jpg" alt="Restaurant and Food App Design">
-        <h3>Restaurant and Food App Design</h3>
-        <p>App Design</p>
-      </div>
-      <div class="work-item">
-        <img src="work-architecture2.jpg" alt="Architecture & Interior Design">
-        <h3>Architecture & Interior Design</h3>
-        <p>Web Design</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Testimonials -->
-  <section class="testimonials">
-    <h2>What My Customers Says About Me</h2>
-    <p>
-      Customer reviews, place and paper means more. Some real views and reliable endorsements. Quant and ease are even persisting in creative roles.
-    </p>
-    <a href="#" class="btn">Contact Our Support</a>
-    <div class="testimonial-grid">
-      <div class="testimonial-item">
-        <div class="avatar"><img src="avatar-harry.jpg" alt="Harry Abraham"></div>
-        <h4>Harry Abraham</h4>
-        <p>SCC Print Company</p>
-        <blockquote>
-          "Futur esq customer massa oaci. Hector lobortis suspendisse faucibus egestas pulvinar ornare est dictum, attritor et sollicitud mauris arcu erat maecenas mattis posuere eget volutpat magna condimentum tristique sagittis."
-        </blockquote>
-      </div>
-      <div class="testimonial-item">
-        <div class="avatar"><img src="avatar-ben.jpg" alt="Ben"></div>
-        <h4>Ben</h4>
-        <p>Position Title</p>
-        <blockquote>
-          "Futur esq customer massa oaci. Hector lobortis suspendisse faucibus egestas pulvinar ornare est dictum, attritor et sollicitud mauris arcu erat maecenas mattis posuere eget volutpat magna condimentum tristique sagittis."
-        </blockquote>
-      </div>
-    </div>
-    <div class="testimonial-images">
-      <img src="testimonial1.jpg" alt="Work 1">
-      <img src="testimonial2.jpg" alt="Work 2">
-      <img src="testimonial3.jpg" alt="Work 3">
-      <img src="testimonial4.jpg" alt="Work 4">
-    </div>
-  </section>
+    <section id="about" class="container section">
+      <div class="about">
+        <div class="about-card">
+          <h3 class="section-title">Why You Hire Me?</h3>
+          <p class="muted">I design digital products prioritized for usability, performance and conversion. I specialize in product strategy, UX flows, UI systems, and design handoff to developers.</p>
 
-  <!-- Contact Info -->
-  <section class="contact-info">
-    <div>
-      <h2>Contact Info</h2>
-      <p>Here is my contact info. Where you’ll find my creativity and my working talent.</p>
-      <ul>
-        <li><strong>Contact Info:</strong><br>info@example.com</li>
-        <li><strong>Email Address:</strong><br>info@example.com</li>
-        <li><strong>Phone:</strong><br>+123 456 0982</li>
-      </ul>
-    </div>
-    <form class="contact-form">
-      <input type="text" name="name" placeholder="Your Name">
-      <input type="email" name="email" placeholder="Your Email">
-      <input type="text" name="phone" placeholder="Your Phone">
-      <select name="service">
-        <option value="">Choose a Service</option>
-        <option value="uiux">UI/UX Design</option>
-        <option value="web">Web Design</option>
-        <option value="app">App Design</option>
-      </select>
-      <textarea name="message" placeholder="Message..."></textarea>
-      <button type="submit">Free Consultation</button>
-    </form>
-  </section>
+          <div class="services" style="margin-top:16px">
+            <div class="service">
+              <h4>Website Design</h4>
+              <p class="muted">Clean responsive websites optimized for performance.</p>
+            </div>
+            <div class="service">
+              <h4>Mobile App Design</h4>
+              <p class="muted">End-to-end app design and prototypes.</p>
+            </div>
+            <div class="service">
+              <h4>Web App Design</h4>
+              <p class="muted">Complex web apps with thoughtful UX patterns.</p>
+            </div>
+          </div>
+        </div>
 
-  <!-- Latest Articles -->
-  <section class="latest-articles">
-    <h2>Latest Articles</h2>
-    <p>Here are my latest blogs where you’ll find my creativity and my working talent.</p>
-    <div class="articles-grid">
-      <div class="article-item">
-        <img src="article-photo.jpg" alt="Perfect AI Photo">
-        <h3>How can you Generate Perfect AI Photo.</h3>
-        <div class="date">21 Dec, 2022</div>
-        <a href="#">Read More</a>
-      </div>
-      <div class="article-item">
-        <img src="article-business.jpg" alt="Business Startup">
-        <h3>How to Build Successful Business Startup.</h3>
-        <div class="date">19 Dec, 2022</div>
-        <a href="#">Read More</a>
-      </div>
-    </div>
-  </section>
+        <div>
+          <h3 class="section-title">My Latest Work</h3>
+          <div class="portfolio-grid" id="projects">
+            <div class="grid-row">
+              <div class="work">
+                <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=60')"></div>
+                <div class="meta">
+                  <strong>App Design With Maintaining UI/UX Process.</strong>
+                  <div class="muted">Web Design</div>
+                </div>
+              </div>
+              <div class="work">
+                <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1528424262174-9c7d9c0c1a81?auto=format&fit=crop&w=800&q=60')"></div>
+                <div class="meta">
+                  <strong>Architecture & Interior Website Design.</strong>
+                  <div class="muted">Website | Creative</div>
+                </div>
+              </div>
+            </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-contact">
-      <h2>Let's Make Something Amazing Together.</h2>
-      <form class="quote-form">
-        <input type="text" placeholder="Type your Message Here">
-        <button type="submit">Get A Quote</button>
-      </form>
-    </div>
-    <p>Copyright &copy; 2025 AWWA. All rights reserved.</p>
-    <div class="footer-social">
-      <a href="#"><span>🐦</span></a>
-      <a href="#"><span>💼</span></a>
-      <a href="#"><span>📷</span></a>
-      <!-- Replace with actual social icons -->
-    </div>
-  </footer>
+            <div class="grid-row" style="margin-top:18px">
+              <div class="work">
+                <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1564865872699-2c4fa9b5b77d?auto=format&fit=crop&w=800&q=60')"></div>
+                <div class="meta">
+                  <strong>Restaurant and Food App Design.</strong>
+                  <div class="muted">App Design</div>
+                </div>
+              </div>
+              <div class="work">
+                <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=60')"></div>
+                <div class="meta">
+                  <strong>Architecture & Interior Design.</strong>
+                  <div class="muted">Web Design</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="container section">
+      <h3 class="section-title">What My Customers Says About Me</h3>
+      <div class="testimonials">
+        <div class="test-card slider" aria-roledescription="carousel">
+          <div class="slides" id="slides">
+            <div class="slide">
+              <p>"Albert is a talented designer — the app conversion improved after his redesign. Great communication and fast iterations."</p>
+              <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" style="width:48px;height:48px;border-radius:999px;object-fit:cover;border:3px solid var(--bg)">
+                <div>
+                  <strong>Harry Abraham</strong><br><span class="muted">CEO, First Company</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide">
+              <p>"We engaged Albert for our product's UX audit. He delivered a clear roadmap and UI kit — super helpful."</p>
+              <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" style="width:48px;height:48px;border-radius:999px;object-fit:cover;border:3px solid var(--bg)">
+                <div>
+                  <strong>Benita Paul</strong><br><span class="muted">Product Lead</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide">
+              <p>"On time, detail oriented, and very skilled. The handoff files were perfect and made development seamless."</p>
+              <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+                <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="" style="width:48px;height:48px;border-radius:999px;object-fit:cover;border:3px solid var(--bg)">
+                <div>
+                  <strong>Claire James</strong><br><span class="muted">Founder</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="controls" style="justify-content:space-between">
+            <div style="display:flex;gap:8px;">
+              <button onclick="prevSlide()" aria-label="Previous">◀</button>
+              <button onclick="nextSlide()" aria-label="Next">▶</button>
+            </div>
+            <div style="display:flex;gap:8px" id="dots"></div>
+          </div>
+        </div>
+
+        <aside class="test-card">
+          <h4 class="kicker">Contact</h4>
+          <strong>Want to work together?</strong>
+          <p class="muted" style="margin-top:10px">I'm available for freelance projects and full-time roles. Let's talk about your next project.</p>
+          <div style="margin-top:14px">
+            <button class="btn-primary" onclick="scrollToSection('#contact')">Contact Our Support</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="contact" class="container section">
+      <h3 class="section-title">Contact Info</h3>
+      <div class="contact-grid">
+        <div>
+          <div class="about-card">
+            <p class="muted">Here is my contact info. Where you'll find my creativity and my working talent.</p>
+            <div style="margin-top:14px">
+              <p><strong>Address</strong><br class="muted">241, Royal St, New Town</p>
+              <p style="margin-top:12px"><strong>Email</strong><br class="muted">hello@awwa.design</p>
+              <p style="margin-top:12px"><strong>Phone</strong><br class="muted">+1 555 123 456</p>
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div style="display:flex;gap:12px">
+            <div style="flex:1">
+              <div class="field"><label class="muted">Your Name</label><input id="name" required></div>
+            </div>
+            <div style="flex:1">
+              <div class="field"><label class="muted">Your Email</label><input id="email" type="email" required></div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px">
+            <div style="flex:1">
+              <div class="field"><label class="muted">Your Phone</label><input id="phone"></div>
+            </div>
+            <div style="flex:1">
+              <div class="field"><label class="muted">Choose a Service</label>
+                <select id="service">
+                  <option>Website Design</option>
+                  <option>Mobile App Design</option>
+                  <option>UI Audit</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="muted">Message</label>
+            <textarea id="message" placeholder="Type your message here..."></textarea>
+          </div>
+
+          <button class="btn-submit">Free Consultation</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
+          <div>© 2025 AWWA. All rights reserved.</div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <a class="muted" href="#" aria-label="facebook">●</a>
+            <a class="muted" href="#" aria-label="twitter">●</a>
+            <a class="muted" href="#" aria-label="instagram">●</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    /* Simple slides */
+    const slidesEl = document.getElementById('slides');
+    const slides = Array.from(slidesEl.children);
+    const dotsEl = document.getElementById('dots');
+    let idx = 0;
+    function renderDots(){
+      dotsEl.innerHTML = '';
+      slides.forEach((_,i)=>{
+        const d = document.createElement('div');
+        d.className = 'dot' + (i===idx? ' active':'');
+        d.addEventListener('click', ()=> { idx=i; update(); resetAuto(); });
+        dotsEl.appendChild(d);
+      });
+    }
+    function update(){
+      slidesEl.style.transform = `translateX(-${idx * 100}%)`;
+      renderDots();
+    }
+    function nextSlide(){ idx = (idx + 1) % slides.length; update();}
+    function prevSlide(){ idx = (idx - 1 + slides.length) % slides.length; update();}
+
+    let auto = setInterval(nextSlide, 5000);
+    function resetAuto(){ clearInterval(auto); auto = setInterval(nextSlide, 5000); }
+
+    renderDots();
+    update();
+
+    /* Menu toggle for small screens */
+    document.querySelector('.menu-toggle').addEventListener('click', ()=> {
+      const nav = document.querySelector('nav');
+      const expanded = nav.style.display !== 'flex';
+      nav.style.display = expanded ? 'flex' : 'none';
+      nav.style.flexDirection = 'column';
+      nav.style.background = 'linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.4))';
+      nav.style.position = 'absolute';
+      nav.style.right = '20px';
+      nav.style.top = '70px';
+      nav.style.padding = '12px';
+    });
+
+    /* Smooth scroll helper */
+    function scrollToSection(sel){
+      const el = document.querySelector(sel);
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    /* Contact form (placeholder) */
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if(!name || !email){ alert('Please add name and email'); return; }
+      // placeholder: normally you'd send to a server
+      alert('Thanks, ' + name + '! Your message has been received (demo).');
+      e.target.reset();
+    }
+  </script>
 </body>
 </html>
