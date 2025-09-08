@@ -1,461 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KK Soni — Shopify & Backend Developer</title>
-  <meta name="description" content="Portfolio of KK Soni — Shopify & Backend Developer with 8+ years of experience in custom themes, optimization, and scalable backend solutions." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Albert Wilson | Creative UX/UI Designer</title>
   <style>
-    :root {
-      --bg: #0b0d12;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --card: #111318;
-      --accent: #6ee7b7;
-      --accent-2: #60a5fa;
-      --ring: rgba(110, 231, 183, 0.35);
-      --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-      --radius: 16px;
-      --space: 20px;
-      --maxw: 1100px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
+    /* CSS Reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color: var(--text);
-      background:
-        radial-gradient(1200px 800px at 70% -10%, rgba(96, 165, 250, .15), transparent 60%),
-        radial-gradient(1200px 800px at -10% 20%, rgba(110, 231, 183, .12), transparent 60%),
-        var(--bg);
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #131313;
+      color: #fff;
       line-height: 1.6;
     }
+    a { color: #fff; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .wrap {
-      width: 100%;
-      max-width: var(--maxw);
-      padding: 0 var(--space);
-      margin: 0 auto;
-    }
-
+    /* Header */
     header {
-      padding: 56px 0 24px;
+      background: #131313;
+      padding: 30px 0 0 0;
+    }
+    nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      align-items: center;
+      padding: 0 10%;
     }
-
-    .brand {
-      font-weight: 800;
-      letter-spacing: .5px;
-      font-size: 20px;
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
     }
-
-    .brand span {
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    nav a {
-      margin-left: 14px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      color: var(--muted);
-    }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, .06);
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 40px 0 24px;
-      display: grid;
-      grid-template-columns: 1.3fr .9fr;
+    nav ul {
+      display: flex;
       gap: 28px;
     }
-
-    .hero .card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, .06), transparent 40%), var(--card);
-      border: 1px solid rgba(255, 255, 255, .08);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
+    nav ul li a {
+      font-size: 1rem;
+      transition: color .2s;
     }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 255, 255, .08);
+    nav ul li a:hover {
+      color: #ffbd6f;
     }
-
-    h1 {
-      font-size: clamp(28px, 5vw, 46px);
-      margin: 10px 0 12px;
-      line-height: 1.2;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .cta {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: linear-gradient(180deg, rgba(110, 231, 183, .15), rgba(96, 165, 250, .15));
-      box-shadow: var(--shadow);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn.primary {
-      background: linear-gradient(180deg, var(--accent), var(--accent-2));
-      color: white;
       border: none;
+      background-color: #ffbd6f;
+      color: #131313;
+      padding: 0.7em 1.7em;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn:hover {
+      background: #e39c35;
+      color: #fff;
     }
 
-    .badge {
-      font-size: 12px;
-      color: var(--muted);
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px dashed rgba(255, 255, 255, .18);
-    }
-
-    .grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .projects {
-      margin-top: 40px;
-    }
-
-    .projects h2,
-    .about h2,
-    .contact h2 {
-      margin: 0 0 8px;
-      font-size: 24px;
-    }
-
-    .projects .grid {
-      grid-template-columns: repeat(12, 1fr);
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, .08);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .project {
-      grid-column: span 12;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .project img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, .08);
-    }
-
-    .project h3 {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .project p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .project .links {
-      margin-top: 10px;
+    /* Hero Section */
+    .hero {
       display: flex;
-      gap: 10px;
+      align-items: center;
+      gap: 40px;
+      padding: 50px 10%;
       flex-wrap: wrap;
     }
-
-    .pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      border: 1px solid rgba(255, 255, 255, .15);
-      color: var(--muted);
+    .hero-content {
+      max-width: 500px;
     }
-
-    .about,
-    .contact {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
+    .hero-content h2 {
+      font-size: 1.5rem;
+      color: #ffbd6f;
     }
+    .hero-content h1 {
+      font-size: 2.6rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+    .hero-content p {
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+      opacity: 0.98;
+    }
+    .hero-actions { display: flex; gap: 18px; margin-bottom: 24px; }
+    .video-link {
+      background: none;
+      color: #ffbd6f;
+      border-bottom: 1px dashed #ffbd6f;
+      font-weight: 500;
+      padding-bottom: 2px;
+      transition: color .2s;
+    }
+    .video-link:hover { color: #fff; border-bottom: 1px solid #fff; }
 
-    .stack {
+    .happy-clients {
+      margin: 20px 0 3px 0;
+      color: #ffbd6f;
+      font-weight: bold;
+    }
+    .client-logos {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      gap: 6px;
+    }
+    .hero-image {
+      flex: 1;
+      min-width: 260px;
+      max-width: 350px;
+    }
+    .hero-image img {
+      border-radius: 18px;
+      box-shadow: 0 0 32px #46371d66;
+      background: #1f1912;
     }
 
-    footer {
-      margin: 40px 0;
-      color: var(--muted);
-      font-size: 14px;
+    /* Stats */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 54px;
+      margin: 0 0 60px 0;
+      padding: 32px 0;
+      background: #181818;
+    }
+    .stat-item {
       text-align: center;
     }
+    .stat-item span {
+      font-size: 2rem;
+      color: #ffbd6f;
+      font-weight: 700;
+      display: block;
+    }
+    .stat-item p {
+      color: #f7f6f6;
+      font-size: 1.07rem;
+    }
 
-    @media (min-width: 860px) {
-      .project {
-        grid-column: span 6;
+    /* Why Hire Me */
+    .why-hire {
+      display: flex;
+      align-items: center;
+      gap: 42px;
+      padding: 38px 10%;
+      flex-wrap: wrap;
+      background: #131313;
+    }
+    .why-hire .profile-image {
+      min-width: 250px;
+      max-width: 350px;
+    }
+    .why-hire-content {
+      max-width: 520px;
+    }
+    .why-hire-content h2 {
+      font-size: 2rem;
+      color: #ffbd6f;
+      margin-bottom: 14px;
+    }
+    .why-hire-content p {
+      margin-bottom: 10px;
+    }
+    .why-hire-content strong { color: #ffbd6f; }
+    .services {
+      display: flex;
+      gap: 26px;
+      margin: 18px 0;
+      flex-wrap: wrap;
+    }
+    .services div {
+      background: #181818;
+      border-radius: 15px;
+      padding: 15px 23px;
+      min-width: 180px;
+      box-shadow: 0 2px 10px #0002;
+      border: 2px solid #232323;
+    }
+    .services strong {
+      font-size: 1rem;
+      color: #ffbd6f;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    /* Latest Work */
+    .latest-work {
+      padding: 32px 10%;
+      background: #181818;
+    }
+    .latest-work h2 {
+      font-size: 2rem;
+      color: #ffbd6f;
+      margin-bottom: 6px;
+    }
+    .latest-work p {
+      margin: 0 0 17px 0;
+      color: #e0e0e0;
+    }
+    .latest-work .btn {
+      margin-bottom: 25px;
+      display: inline-block;
+    }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 18px;
+    }
+    .work-item {
+      background: #131313;
+      border-radius: 13px;
+      padding: 18px;
+      box-shadow: 0 0 12px #0006;
+    }
+    .work-item h3 {
+      margin: 9px 0 5px 0;
+      color: #ffbd6f;
+      font-size: 1.13rem;
+    }
+    .work-item p {
+      font-size: 1rem;
+      color: #adb6c5;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 32px 10%;
+      background: #131313;
+    }
+    .testimonials h2 {
+      font-size: 2rem;
+      color: #ffbd6f;
+      margin-bottom: 8px;
+    }
+    .testimonial-grid {
+      display: flex;
+      gap: 32px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+    .testimonial-item {
+      flex: 1;
+      background: #181818;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 2px 10px #0003;
+      min-width: 230px;
+    }
+    .testimonial-item .avatar img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .testimonial-item h4 {
+      margin: 10px 0 2px 0;
+      color: #ffbd6f;
+      font-size: 1.06rem;
+    }
+    .testimonial-item p {
+      font-size: 0.97rem;
+      color: #a8adc0;
+      margin-bottom: 6px;
+    }
+    .testimonial-item blockquote {
+      font-size: .97rem;
+      color: #ddd;
+      font-style: italic;
+      margin-top: 7px;
+      opacity: .98;
+    }
+    .testimonial-images {
+      margin: 17px 0 0 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+    .testimonial-images img {
+      border-radius: 8px;
+      background: #161616;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      padding: 32px 10%;
+      background: #181818;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    .contact-info h2 {
+      color: #ffbd6f;
+      margin-bottom: 8px;
+      font-size: 2rem;
+    }
+    .contact-info ul {
+      margin: 12px 0;
+    }
+    .contact-info ul li {
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: #bbb;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      background: #131313;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 0 10px #0002;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      background: #181818;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 11px;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      outline: none;
+    }
+    .contact-form textarea {
+      resize: vertical;
+      height: 75px;
+      min-height: 40px;
+      max-height: 140px;
+    }
+    .contact-form button {
+      background: #ffbd6f;
+      color: #131313;
+      border: none;
+      padding: 11px;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .contact-form button:hover {
+      background: #e39c35;
+      color: #fff;
+    }
+
+    /* Latest Articles */
+    .latest-articles {
+      padding: 32px 10% 55px 10%;
+      background: #131313;
+      text-align: center;
+    }
+    .latest-articles h2 {
+      font-size: 2rem;
+      color: #ffbd6f;
+    }
+    .latest-articles p {
+      margin-bottom: 25px;
+      color: #f7f6f6;
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 18px;
+    }
+    .article-item {
+      background: #181818;
+      border-radius: 14px;
+      padding: 17px;
+      box-shadow: 0 0 10px #0002;
+      text-align: left;
+    }
+    .article-item h3 {
+      color: #ffbd6f;
+      margin: 11px 0 4px 0;
+      font-size: 1.13rem;
+    }
+    .article-item .date {
+      font-size: 0.92rem;
+      color: #aaa;
+      margin-bottom: 6px;
+    }
+    .article-item a {
+      display: inline-block;
+      margin-top: 4px;
+      color: #ffbd6f;
+      text-decoration: underline;
+      font-size: 0.97rem;
+    }
+    .article-item a:hover { color: #fff; }
+
+    /* Footer */
+    footer {
+      background: #181818;
+      text-align: center;
+      padding: 45px 0 22px 0;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+    .footer-contact h2 {
+      color: #ffbd6f;
+      margin-bottom: 13px;
+    }
+    .quote-form {
+      margin: 0 auto;
+      max-width: 390px;
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .quote-form input {
+      flex: 1 0 65%;
+      padding: 11px;
+      border-radius: 6px;
+      border: none;
+      background: #131313;
+      color: #fff;
+      font-size: 1rem;
+      margin-right: 7px;
+      outline: none;
+    }
+    .quote-form button {
+      flex: 1 0 25%;
+      background: #ffbd6f;
+      color: #131313;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      padding: 11px 22px;
+      cursor: pointer;
+    }
+    .quote-form button:hover { background: #e39c35; color: #fff; }
+    .footer-social {
+      margin: 18px 0 0 0;
+      display: flex;
+      gap: 17px;
+      justify-content: center;
+    }
+    .footer-social a {
+      font-size: 1.3rem;
+      color: #ffbd6f;
+    }
+
+    @media (max-width: 1100px) {
+      nav, .hero, .stats, .why-hire, .latest-work, .testimonials, .contact-info {
+        padding-left: 5%;
+        padding-right: 5%;
       }
-
-      .about,
-      .contact {
-        grid-template-columns: 1.2fr .8fr;
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .why-hire {
+        flex-direction: column;
+        text-align: center;
+      }
+      .contact-info {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+    @media (max-width: 700px) {
+      nav ul { display: none; }
+      .hero, .why-hire, .stats, .latest-work, .testimonials, .contact-info {
+        padding-left: 2%;
+        padding-right: 2%;
+      }
+      .stat-item span { font-size: 1.3rem; }
+      .stats { gap: 22px; }
+      .work-grid, .articles-grid, .testimonial-images {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .testimonial-grid {
+        flex-direction: column;
+        gap: 14px;
+      }
+      .footer-contact h2 {
+        font-size: 1.18rem;
       }
     }
   </style>
 </head>
 <body>
-  <header class="wrap">
-    <div class="brand">
-      KK Soni <span>| Shopify & Backend Developer</span>
-    </div>
+  <!-- Header and Nav -->
+  <header>
     <nav>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <div class="logo">awwa</div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+      <a href="#" class="btn">Contact Me</a>
     </nav>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>HELLO I'M</h2>
+        <h1>Albert Wilson</h1>
+        <p>A Creative UX/UI Designer Who Solves Problems Through Designs</p>
+        <div class="hero-actions">
+          <a href="#" class="btn">Let's Get Started</a>
+          <a href="#" class="video-link">Watch Our Video</a>
+        </div>
+        <div class="happy-clients">325+ Happy Clients</div>
+        <div class="client-logos">
+          <img src="client1.png" alt="Client 1" width="28">
+          <img src="client2.png" alt="Client 2" width="28">
+          <img src="client3.png" alt="Client 3" width="28">
+          <!-- Add client logos -->
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="profile1.jpg" alt="Profile Photo">
+      </div>
+    </section>
   </header>
 
-  <main class="wrap">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="card">
-        <span class="eyebrow">👋 Hi! I create scalable web solutions</span>
-        <h1>
-          Shopify & Backend Developer with 8+ years of experience building fast,
-          optimized, and user-friendly websites.
-        </h1>
-        <p class="lead">
-          I specialize in Shopify custom themes, store optimization, and backend
-          solutions using Node.js & PHP. Let’s bring your idea to life.
-        </p>
-       <div class="cta">
-          <a class="btn primary" href="#contact">Contact Me</a>
-          <a class="btn" href="#projects">See Projects</a>
-          <a href="#contact" class="btn">
-             <span>✅ Available for Freelance</span>
-          </a>
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stat-item">
+      <span>467+</span>
+      <p>Successful Projects</p>
+    </div>
+    <div class="stat-item">
+      <span>2+</span>
+      <p>Satisfied Clients</p>
+    </div>
+    <div class="stat-item">
+      <span>255+</span>
+      <p>Years of Experience</p>
+    </div>
+    <div class="stat-item">
+      <span>7+</span>
+      <p>Award Winning</p>
+    </div>
+  </section>
 
-        </div>
-      </div>
-
-      <div class="card">
-        <strong>Quick facts</strong>
-        <ul style="margin:10px 0 0 18px; color:var(--muted)">
-          <li>Role: Shopify & Backend Developer</li>
-          <li>Stack: Shopify, Liquid, Node.js, PHP, React</li>
-          <li>Location: 🌍 Remote-friendly</li>
-        </ul>
-        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-          <span class="pill">Performance</span>
-          <span class="pill">Custom Themes</span>
-          <span class="pill">VWO A/B Testing</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="projects">
-      <h2>Featured Projects</h2>
-      <p class="lead">
-        Some of my real work. Each project links to a live demo or GitHub repo.
+  <!-- Why Hire Me -->
+  <section class="why-hire">
+    <div class="profile-image">
+      <img src="profile2.jpg" alt="Profile Photo">
+    </div>
+    <div class="why-hire-content">
+      <h2>Why You Hire Me?</h2>
+      <p>
+        My passion is designing process, problem-solving and creating. Dream-aiming creative designer providing UI/UX solutions for web and mobile applications. Always enthusiastic to face new challenges, working on creative or complex problems, and collaborating with teams to deliver user-centered appealing interfaces.
       </p>
-
-      <div class="grid">
-        <article class="project card">
-          <img src="your-shopify-project.png" alt="Shopify Optimization Project" />
-          <div>
-            <h3>Shopify Store Optimization</h3>
-            <p>
-              Custom optimization for Shopify store achieving 90+ Lighthouse
-              scores without third-party apps.
-            </p>
-            <div class="links">
-              <a class="btn" href="#" target="_blank" rel="noreferrer">Live Store</a>
-              <a class="btn" href="#" target="_blank" rel="noreferrer">Case Study</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project card">
-          <img src="your-theme-dev.png" alt="Shopify Theme Development" />
-          <div>
-            <h3>Custom Shopify Theme</h3>
-            <p>
-              Developed a fully custom, responsive Shopify theme optimized for
-              performance and UX.
-            </p>
-            <div class="links">
-              <a class="btn" href="#" target="_blank" rel="noreferrer">Live Demo</a>
-              <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project card">
-          <img src="your-node-backend.png" alt="Node.js Backend Project" />
-          <div>
-            <h3>Node.js Backend API</h3>
-            <p>
-              Scalable backend for an e-commerce platform with authentication,
-              caching, and analytics.
-            </p>
-            <div class="links">
-              <a class="btn" href="#" target="_blank" rel="noreferrer">API Docs</a>
-              <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project card">
-          <img src="your-vwo.png" alt="VWO A/B Testing Project" />
-          <div>
-            <h3>VWO A/B Testing</h3>
-            <p>
-              Implemented advanced VWO split-testing and personalization for
-              conversion rate optimization.
-            </p>
-            <div class="links">
-              <a class="btn" href="#" target="_blank" rel="noreferrer">Case Study</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="about">
-      <div class="card">
-        <h2>About</h2>
-        <p>
-          Hi, I’m <strong>KK Soni</strong>. I’m a
-          <b>Shopify & Backend Developer</b> with 8+ years of experience. I build
-          fast, scalable, and high-performing websites that improve user
-          experience and drive conversions.
-        </p>
-        <p>
-          I love solving real business problems through custom Shopify themes,
-          backend APIs, and performance optimization. I also lead a small dev
-          team to deliver enterprise-level projects.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Skills & Tools</h3>
-        <div class="stack">
-          <span class="pill">Shopify</span>
-          <span class="pill">Liquid</span>
-          <span class="pill">Node.js</span>
-          <span class="pill">PHP</span>
-          <span class="pill">React</span>
-          <span class="pill">Tailwind</span>
-          <span class="pill">VWO</span>
-          <span class="pill">Performance Optimization</span>
+      <p><strong>Albert Wilson</strong><br>CEO &amp; UX Designer</p>
+      <div class="services">
+        <div>
+          <strong>Website Design</strong>
+          <p>I have complete website design for my clients.</p>
         </div>
-
-        <h3 style="margin-top:16px;">Links</h3>
-        <p class="lead">
-          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a> ·
-          <a href="#" target="_blank" rel="noreferrer">LinkedIn</a> ·
-          <a href="#" target="_blank" rel="noreferrer">Resume (PDF)</a>
-        </p>
+        <div>
+          <strong>Mobile App Design</strong>
+          <p>I have complete Mobile App design for my clients.</p>
+        </div>
+        <div>
+          <strong>Web App Design</strong>
+          <p>I have complete Web App design for my clients.</p>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-      <div class="card">
-        <h2>Contact</h2>
-        <p>Want to collaborate or have a project in mind? Email me:</p>
-        <p>
-          <a class="btn primary" href="mailto:lab.kspeed@gmail.com">
-            lab.kspeed@gmail.com
-          </a>
-        </p>
-        <p class="lead">Or reach out on LinkedIn.</p>
+  <!-- Latest Work -->
+  <section class="latest-work">
+    <h2>My Latest Work</h2>
+    <p>Here is my latest work where you’ll find my creativity and my working talent.</p>
+    <a href="#" class="btn">Contact our Support</a>
+    <div class="work-grid">
+      <div class="work-item">
+        <img src="work-uiux.jpg" alt="App Design With Maintaining UI/UX Process">
+        <h3>App Design With Maintaining UI/UX Process</h3>
+        <p>Web Design</p>
       </div>
-
-      <div class="card">
-        <h3>Small print</h3>
-        <p class="lead">
-          This portfolio is built with clean HTML & CSS. Lightweight, fast, and
-          SEO-friendly.
-        </p>
+      <div class="work-item">
+        <img src="work-architecture.jpg" alt="Architecture & Interior Website Design">
+        <h3>Architecture & Interior Website Design</h3>
+        <p>Website | Creative</p>
       </div>
-    </section>
-  </main>
+      <div class="work-item">
+        <img src="work-restaurant.jpg" alt="Restaurant and Food App Design">
+        <h3>Restaurant and Food App Design</h3>
+        <p>App Design</p>
+      </div>
+      <div class="work-item">
+        <img src="work-architecture2.jpg" alt="Architecture & Interior Design">
+        <h3>Architecture & Interior Design</h3>
+        <p>Web Design</p>
+      </div>
+    </div>
+  </section>
 
-  <footer class="wrap">
-    <p>© <span id="y"></span> KK Soni — All rights reserved.</p>
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What My Customers Says About Me</h2>
+    <p>
+      Customer reviews, place and paper means more. Some real views and reliable endorsements. Quant and ease are even persisting in creative roles.
+    </p>
+    <a href="#" class="btn">Contact Our Support</a>
+    <div class="testimonial-grid">
+      <div class="testimonial-item">
+        <div class="avatar"><img src="avatar-harry.jpg" alt="Harry Abraham"></div>
+        <h4>Harry Abraham</h4>
+        <p>SCC Print Company</p>
+        <blockquote>
+          "Futur esq customer massa oaci. Hector lobortis suspendisse faucibus egestas pulvinar ornare est dictum, attritor et sollicitud mauris arcu erat maecenas mattis posuere eget volutpat magna condimentum tristique sagittis."
+        </blockquote>
+      </div>
+      <div class="testimonial-item">
+        <div class="avatar"><img src="avatar-ben.jpg" alt="Ben"></div>
+        <h4>Ben</h4>
+        <p>Position Title</p>
+        <blockquote>
+          "Futur esq customer massa oaci. Hector lobortis suspendisse faucibus egestas pulvinar ornare est dictum, attritor et sollicitud mauris arcu erat maecenas mattis posuere eget volutpat magna condimentum tristique sagittis."
+        </blockquote>
+      </div>
+    </div>
+    <div class="testimonial-images">
+      <img src="testimonial1.jpg" alt="Work 1">
+      <img src="testimonial2.jpg" alt="Work 2">
+      <img src="testimonial3.jpg" alt="Work 3">
+      <img src="testimonial4.jpg" alt="Work 4">
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="contact-info">
+    <div>
+      <h2>Contact Info</h2>
+      <p>Here is my contact info. Where you’ll find my creativity and my working talent.</p>
+      <ul>
+        <li><strong>Contact Info:</strong><br>info@example.com</li>
+        <li><strong>Email Address:</strong><br>info@example.com</li>
+        <li><strong>Phone:</strong><br>+123 456 0982</li>
+      </ul>
+    </div>
+    <form class="contact-form">
+      <input type="text" name="name" placeholder="Your Name">
+      <input type="email" name="email" placeholder="Your Email">
+      <input type="text" name="phone" placeholder="Your Phone">
+      <select name="service">
+        <option value="">Choose a Service</option>
+        <option value="uiux">UI/UX Design</option>
+        <option value="web">Web Design</option>
+        <option value="app">App Design</option>
+      </select>
+      <textarea name="message" placeholder="Message..."></textarea>
+      <button type="submit">Free Consultation</button>
+    </form>
+  </section>
+
+  <!-- Latest Articles -->
+  <section class="latest-articles">
+    <h2>Latest Articles</h2>
+    <p>Here are my latest blogs where you’ll find my creativity and my working talent.</p>
+    <div class="articles-grid">
+      <div class="article-item">
+        <img src="article-photo.jpg" alt="Perfect AI Photo">
+        <h3>How can you Generate Perfect AI Photo.</h3>
+        <div class="date">21 Dec, 2022</div>
+        <a href="#">Read More</a>
+      </div>
+      <div class="article-item">
+        <img src="article-business.jpg" alt="Business Startup">
+        <h3>How to Build Successful Business Startup.</h3>
+        <div class="date">19 Dec, 2022</div>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-contact">
+      <h2>Let's Make Something Amazing Together.</h2>
+      <form class="quote-form">
+        <input type="text" placeholder="Type your Message Here">
+        <button type="submit">Get A Quote</button>
+      </form>
+    </div>
+    <p>Copyright &copy; 2025 AWWA. All rights reserved.</p>
+    <div class="footer-social">
+      <a href="#"><span>🐦</span></a>
+      <a href="#"><span>💼</span></a>
+      <a href="#"><span>📷</span></a>
+      <!-- Replace with actual social icons -->
+    </div>
   </footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
