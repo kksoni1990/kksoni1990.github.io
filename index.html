@@ -570,31 +570,36 @@
   </div>
 </div>
 </section>
-</main>
 
 <!-- Enhanced Footer -->
 <footer class="bg-primary py-12 text-center">
 <div class="container mx-auto px-6">
-  <div class="flex flex-col md:flex-row justify-between items-center">
+  <div class="flex flex-col md:flex-row justify-center items-center">
     <div class="mb-4 md:mb-0">
-      <p class="text-white font-medium">&copy; 2024 KK Soni. Crafted with <i class="fas fa-heart text-red-400"></i></p>
+      <p class="text-secondary font-medium">&copy; 2024 KK Soni. Crafted with <i class="fas fa-heart text-red-400"></i></p>
     </div>
-    <div class="flex space-x-4">
-      <a href="https://github.com/kksoni1990" target="_blank" class="text-white hover:text-gray-200 transition-colors duration-300">
+    <div class="flex space-x-4 md:ml-8">
+      <a href="https://github.com/kksoni1990" target="_blank" class="text-secondary hover:text-gray-200 transition-colors duration-300">
         <i class="fab fa-github text-xl"></i>
       </a>
-      <a href="https://www.linkedin.com/in/kk-soni/" target="_blank" class="text-white hover:text-gray-200 transition-colors duration-300">
+      <a href="https://www.linkedin.com/in/kk-soni/" target="_blank" class="text-secondary hover:text-gray-200 transition-colors duration-300">
         <i class="fab fa-linkedin text-xl"></i>
       </a>
-      <a href="https://twitter.com/kksoni1990" target="_blank" class="text-white hover:text-gray-200 transition-colors duration-300">
+      <a href="https://twitter.com/kksoni1990" target="_blank" class="text-secondary hover:text-gray-200 transition-colors duration-300">
         <i class="fab fa-twitter text-xl"></i>
+      </a>
+      <a href="mailto:kksoni1990@gmail.com" target="_blank" class="text-secondary hover:text-gray-200 transition-colors duration-300">
+        <i class="fas fa-envelope text-xl"></i>
       </a>
     </div>
   </div>
 </div>
 </footer>
 
-<!-- Enhanced Notification -->
+<!-- 
+  This notification element is hidden by default using CSS and made visible
+  only when JavaScript adds the 'show' class, typically after a form submission.
+-->
 <div id="notification" class="notification">
 <i class="fas fa-check-circle mr-2"></i>
 <span id="notification-text">Message sent successfully!</span>
@@ -769,11 +774,18 @@ const submitBtn = document.getElementById('submit-btn');
 const submitText = document.getElementById('submit-text');
 const submitLoading = document.getElementById('submit-loading');
 
+/**
+ * Shows a temporary notification with a given message and style.
+ * @param {string} message - The message to display.
+ * @param {boolean} isError - If true, shows an error style; otherwise, shows a success style.
+ */
 function showNotification(message, isError = false) {
   const notificationText = document.getElementById('notification-text');
   notificationText.textContent = message;
+  // Add 'show' class to slide the notification into view
   notification.className = isError ? 'notification error show' : 'notification show';
   
+  // Set a timer to hide the notification after 4 seconds
   setTimeout(() => {
     notification.classList.remove('show');
   }, 4000);
@@ -842,3 +854,4 @@ animateSkillBars();
 
 </body>
 </html>
+
